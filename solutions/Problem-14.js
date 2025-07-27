@@ -141,6 +141,7 @@ MinStack.prototype.pop = function() {
     if (this.stack.length === 0) return;
     const pop = this.stack.pop();
     if (pop < 0) this.min -= pop; 
+    //deletes last item in the stack
 };
 
 /**
@@ -148,6 +149,7 @@ MinStack.prototype.pop = function() {
  */
 MinStack.prototype.top = function() {
     const top = this.stack[this.stack.length - 1];
+    //finds the top most element
     return top > 0 ? top + this.min : this.min;
 };
 

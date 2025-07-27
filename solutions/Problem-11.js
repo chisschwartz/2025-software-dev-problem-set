@@ -1,3 +1,5 @@
+// 3 Sum - Medium Two Pointers //
+
 // Brute Force //
 
 /**
@@ -71,14 +73,20 @@ var threeSum = function(nums) {
 var threeSum = function(nums) {
     
     nums.sort((a, b) => a - b);
+    //sort in an ascending order
     const res = [];
+    //empty array to plug results into
+
+    //-4, -1, -1, 0, 1, 2
 
     for (let i = 0; i < nums.length; i++) {
         if (nums[i] > 0) break;
         if (i > 0 && nums[i] === nums[i - 1]) continue;
 
         let l = i + 1;
+        //always sets l higher than i
         let r = nums.length - 1;
+        //always sets r higher than l
 
         while (l < r) {
             const sum = nums[i] + nums[l] + nums[r];
@@ -87,13 +95,17 @@ var threeSum = function(nums) {
                 r--;
             } else if (sum < 0) {
                 l++;
+
+                //slowly intercepts the target sum
             } else { 
                 res.push([nums[i], nums[l], nums[r]]);
                 l++;
                 r--;
+                //pushes the portions of the array into a the res array
 
                 while (l < r && nums[l] === nums[l - 1]) {
                     l++;
+                    //speeds up the function by bypassing evaluation of l when number exists further in the array
                 }
             }
         }

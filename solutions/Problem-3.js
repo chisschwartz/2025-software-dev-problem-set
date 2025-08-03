@@ -80,14 +80,19 @@ var twoSum = function(nums, target) {
  */
 var twoSum = function(nums, target) {
     const prevMap = new Map();
+    //creating a map to run through
 
     for (let i = 0; i < nums.length; i++) {
         const diff = target - nums[i];
+        //finds difference of the target minus i
+        //if diff exists in the array then the solution does exist
         if (prevMap.has(diff)) {
             return [prevMap.get(diff), i];
+            //grabs the location of the solution
         }
 
         prevMap.set(nums[i], i);
+        //pushes the soultion
     }
     return [];
     

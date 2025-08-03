@@ -53,9 +53,11 @@ var isAnagram = function(s, t) {
 var isAnagram = function(s, t) {
     if (s.length !== t.length) {
         return false;
+        //saves time by evaluating lengths to determine if anagram is possible
     }
 
     const count = new Array(26).fill(0);
+    //fills an array of 26
     for (let i = 0; i < s.length; i++) {
         count[s.charCodeAt(i) - 'a'.charCodeAt(0)]++;
         count[t.charCodeAt(i) - 'a'.charCodeAt(0)]--;

@@ -67,16 +67,20 @@
  class Solution {
      public int[] twoSum(int[] nums, int target) {
          HashMap<Integer, Integer> prevMap = new HashMap<>();
+         //create a new hasmap to run trhough for our target
 
          for (int i = 0; i < nums.length; i++) {
              int num = nums[i];
              int diff = target - num;
+             //creates a way to pass through our array effectively
 
              if (prevMap.containsKey(diff)) {
+                 //searching through our map for the difference between the target and num[i]
                  return new int[] { prevMap.get(diff), i };
              }
 
              prevMap.put(num, i);
+             //inserts variables into the hashmap
          }
 
          return new int[0];

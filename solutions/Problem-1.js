@@ -56,4 +56,6 @@ var containsDuplicate = function(nums) {
  */
 var containsDuplicate = function(nums) {
     return new Set(nums).size < nums.length;
+    //Set counts all distinct elements, so when comparing to length
+    //will return false if not all elements are distinct
 };

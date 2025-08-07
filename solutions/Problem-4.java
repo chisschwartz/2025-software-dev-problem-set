@@ -19,16 +19,23 @@ class Solution {
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
         Map<String, List<String>> res = new HashMap<>();
+        //creates a new HashMap to evaluate through
         for (String s : strs) {
             int[] count = new int[26];
+            //creates alphabet
             for (char c : s.toCharArray()) {
                 count[c - 'a']++;
+                //for every character in s Array subtracts letters from the alphabet
             }
             String key = Arrays.toString(count);
+            //creates an easy way to grab our solutions
             res.putIfAbsent(key, new ArrayList<>());
+            //inserts key into our map
             res.get(key).add(s);
+            //inserts solutions into res
         }
         return new ArrayList<>(res.values());
+        //returns our anagram solutions
     }
 }
 

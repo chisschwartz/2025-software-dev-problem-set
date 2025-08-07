@@ -61,6 +61,8 @@ var isAnagram = function(s, t) {
     for (let i = 0; i < s.length; i++) {
         count[s.charCodeAt(i) - 'a'.charCodeAt(0)]++;
         count[t.charCodeAt(i) - 'a'.charCodeAt(0)]--;
+        //slowly qorks through and eliminates characters
     }
     return count.every(val => val === 0);
+    //returns true if evaluation equals zero
 };

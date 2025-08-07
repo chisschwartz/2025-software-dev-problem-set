@@ -3,8 +3,11 @@
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
         Map<Integer, Integer> count = new HashMap<>();
+        //creates a new map to work through
         for (int num : nums) {
+            //for every num in nums
             count.put(num, count.getOrDefault(num, 0) + 1);
+            //count every instance of a number and inserts it into count map
         }
 
         List<int[]> arr = new ArrayList<>();
@@ -51,18 +54,22 @@ class Solution {
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
         Map<Integer, Integer> count = new HashMap<>();
+        //creates new map for count
         List<Integer>[] freq = new List[nums.length + 1];
 
         for (int i = 0; i < freq.length; i++) {
             freq[i] = new ArrayList<>();
+            //creates new list
         }
 
         for (int n : nums) {
             count.put(n, count.getOrDefault(n, 0) + 1);
+            //counts the occurrence of n
         }
 
         for (Map.Entry<Integer, Integer> entry : count.entrySet()) {
             freq[entry.getValue()].add(entry.getKey());
+            //retrieves the value and amount of occurrences of value
         }
 
 

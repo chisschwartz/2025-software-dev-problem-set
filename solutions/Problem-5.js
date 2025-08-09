@@ -60,7 +60,9 @@ var topKFrequent = function(nums, k) {
 var topKFrequent = function(nums, k) {
         
     const count = {};
+    //creates a constant to pull from
     const freq = Array.from({ length: nums.length + 1 }, () => []);
+    //creates am array from nums
 
     for (const n of nums) {
         count[n] = (count[n] || 0) + 1;

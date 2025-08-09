@@ -56,10 +56,12 @@ var isValidSudoku = function(board) {
     const cols = new Map();
     const rows = new Map();
     const squares = new Map();
+    //creates our maps
 
     for (let r = 0; r < 9; r++) {
         for (let c = 0; c < 9; c++) {
             if (board[r][c] === ".") continue;
+            //evaluates a blank and continues
 
             const squareKey = `${Math.floor(r / 3)}, ${Math.floor(c / 3)}`;
 
@@ -72,6 +74,7 @@ var isValidSudoku = function(board) {
                 if (!rows.has(r)) rows.set(r, new Set());
                 if (!cols.has(c)) cols.set(c, new Set());
                 if (!squares.has(squareKey)) squares.set(squareKey, new Set());
+                //if spaces do not contain the numbers, then sets them in the map
 
                 rows.get(r).add(board[r][c]);
                 cols.get(c).add(board[r][c]);

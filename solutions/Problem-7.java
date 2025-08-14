@@ -52,16 +52,19 @@ class Solution {
                 //evaluates a blank and continues
 
                 String squareKey = (r / 3) + "," + (c / 3);
+                //divides our 9 squares into essintially 3 subsections
 
                 if (rows.computeIfAbsent(r, k -> new HashSet<>()).contains(board[r][c]) ||
                     cols.computeIfAbsent(c, k -> new HashSet<>()).contains(board[r][c]) || 
                     squares.computeIfAbsent(squareKey, k -> new HashSet<>()).contains(board[r][c])) {
                         return false;
+                        //stores all values we have seen before and checks for duplicates
                     }
 
                 rows.get(r).add(board[r][c]);
                 cols.get(c).add(board[r][c]);
                 squares.get(squareKey).add(board[r][c]);
+                //if no issues adds values into the board
             }
         }
 

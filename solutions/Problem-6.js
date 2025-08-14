@@ -97,21 +97,23 @@ var productExceptSelf = function(nums) {
  */
 var productExceptSelf = function(nums) {
 
-    //come back to this later
-
     const n = nums.length;
     const res = new Array(n).fill(1);
-    //creates a new array filled with 1s
+    //creates an array with the length of nums with a 1 in each position
 
-    for (let i = 1; i < n; i++) {
+    for (let i = 1; i < ns; i++) {
         res[i] = res[i - 1] * nums[i - 1];
+        //acquires our prefix for later usse
     }
 
     let postfix = 1;
+    //initializes postfix to 1
     
     for (let i = n - 1; i >= 0; i--) {
         res[i] *= postfix;
+        //multiplies our prefix by postfix
         postfix *= nums[i];
+        //updates our array of nums
     }
 
     return res;

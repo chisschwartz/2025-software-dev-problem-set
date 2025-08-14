@@ -64,21 +64,25 @@ var isValidSudoku = function(board) {
             //evaluates a blank and continues
 
             const squareKey = `${Math.floor(r / 3)}, ${Math.floor(c / 3)}`;
+            //creates a key that divides the board into a group of 3 on each axis
 
             if ((rows.get(r) && rows.get(r).has(board[r][c])) ||
                 (cols.get(c) && cols.get(c).has(board[r][c])) ||
                 (squares.get(squareKey) && squares.get(squareKey).has(board[r][c]))) {
                     return false;
+                    //evaluates previous integers in the board for duplicates
+                    //for current values and if duplicates are found returns false
                 }
 
                 if (!rows.has(r)) rows.set(r, new Set());
                 if (!cols.has(c)) cols.set(c, new Set());
                 if (!squares.has(squareKey)) squares.set(squareKey, new Set());
-                //if spaces do not contain the numbers, then sets them in the map
+                //sets our values into a hashmap
 
                 rows.get(r).add(board[r][c]);
                 cols.get(c).add(board[r][c]);
                 squares.get(squareKey).add(board[r][c]);
+                //if all tests pass, pushes values onto the board
         }
     }
 

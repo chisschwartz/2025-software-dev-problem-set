@@ -69,7 +69,7 @@ class Solution {
 
         for (Map.Entry<Integer, Integer> entry : count.entrySet()) {
             freq[entry.getValue()].add(entry.getKey());
-            //retrieves the value and amount of occurrences of value
+            //establishes items in our freq array
         }
 
 
@@ -77,9 +77,12 @@ class Solution {
         int index = 0;
         for (int i = freq.length - 1; i > 0 && index < k; i--) {
             for (int n : freq[i]) {
+                //for every entry at i
                 res[index++] = n;
-                if (index == k) {
+                //put n into res
+                if (index == k) { 
                     return res;
+                    //end evaluation when k is reached
                 }
             }
         }

@@ -25,7 +25,7 @@ class Solution {
             //creates alphabet
             for (char c : s.toCharArray()) {
                 count[c - 'a']++;
-                //for every character in s Array subtracts letters from the alphabet
+                //subtracts each ascii letter in the alphabet to count amount of letters
             }
             String key = Arrays.toString(count);
             //creates an easy way to grab our solutions

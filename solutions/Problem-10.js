@@ -102,7 +102,7 @@ var twoSum = function(numbers, target) {
         } else {
             return [l + 1, r + 1]
             //add one onto the end of the variables because otherwise the solution will be 1 off
-            //due to the way we are navigating and manipulating the array.
+            //due to the way the way the problem would like the solution
         }
     }
 

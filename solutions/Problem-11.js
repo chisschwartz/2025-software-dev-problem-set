@@ -82,26 +82,31 @@ var threeSum = function(nums) {
     for (let i = 0; i < nums.length; i++) {
         if (nums[i] > 0) break;
         if (i > 0 && nums[i] === nums[i - 1]) continue;
+        //passes over previous identical values
 
         let l = i + 1;
         //always sets l higher than i
         let r = nums.length - 1;
         //always sets r higher than l
+        //two pointer section of logic
 
         while (l < r) {
             const sum = nums[i] + nums[l] + nums[r];
+            //sum we are looking for
 
             if (sum > 0) {
                 r--;
+                //goes down the list of nums
             } else if (sum < 0) {
                 l++;
+                //goes up list of nums
 
-                //slowly intercepts the target sum
             } else { 
                 res.push([nums[i], nums[l], nums[r]]);
+                //when equal to 0, push into res
                 l++;
                 r--;
-                //pushes the portions of the array into a the res array
+                //updates our pointers
 
                 while (l < r && nums[l] === nums[l - 1]) {
                     l++;

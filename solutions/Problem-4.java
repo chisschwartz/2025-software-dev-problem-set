@@ -25,14 +25,14 @@ class Solution {
             //creates alphabet
             for (char c : s.toCharArray()) {
                 count[c - 'a']++;
-                //subtracts each ascii letter in the alphabet to count amount of letters
+                //subtracts each ascii letter in the alphabet to count amount of letters occurring
             }
             String key = Arrays.toString(count);
             //creates an easy way to grab our solutions
             res.putIfAbsent(key, new ArrayList<>());
-            //inserts key into our map
+            //inserts key into our map creating a new group
             res.get(key).add(s);
-            //inserts solutions into res
+            //inserts solutions into res adding into group
         }
         return new ArrayList<>(res.values());
         //returns our anagram solutions

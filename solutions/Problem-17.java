@@ -55,6 +55,7 @@ class Solution {
 
         int n = temperatures.length;
         int[] res = new int[n];
+        //Initializes the result array with the same length as temperatures
 
         for (int i = n - 2; i >= 0; i--) {
             

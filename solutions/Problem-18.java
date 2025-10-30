@@ -4,16 +4,22 @@ class Solution {
     public int carFleet(int target, int[] position, int[] speed) {
         
         int[][] pair = new int[position.length][2];
+        //Initialize the pair array with position and speed
         for (int i = 0; i <  position.length; i++) {
             pair[i][0] = position[i];
+            //initializes the position
             pair[i][1] = speed[i];
+            //initializes the speed
         }
 
         Arrays.sort(pair, (a, b) -> Integer.compare(b[0], a[0]));
+        //Sorts the pair array in descending order
         Stack<Double> stack = new Stack<>();
+        //Stack to keep track of the time taken for each car to reach the target
 
         for (int[] p : pair) {
             stack.push((double) (target - p[0]) / p[1]);
+            //for every car, calculate the time to reach the target and push it onto the stack
 
             if (stack.size() >= 2 &&
                 stack.peek() <= stack.get(stack.size() - 2))

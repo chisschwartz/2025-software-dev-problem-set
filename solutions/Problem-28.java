@@ -30,16 +30,20 @@ class Solution {
         if (s1.length() > s2.length()) {
             return false;
         }
+        //returns false if the first string is larger than the second
 
         int[] s1Count = new int [26];
         int[] s2Count = new int [26];
+        //intilizes both counts to the size of the alphabet
 
         for (int i = 0; i < s1.length(); i++) {
             s1Count[s1.charAt(i) - 'a']++;
             s2Count[s2.charAt(i) - 'a']++;
         }
+        //goes through the alphabet for both strings
 
         int matches = 0;
+        //stores our matches
 
         for (int i = 0; i < 26; i++) {
             if (s1Count[i] == s2Count[i]) {

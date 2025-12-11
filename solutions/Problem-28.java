@@ -48,10 +48,12 @@ class Solution {
         for (int i = 0; i < 26; i++) {
             if (s1Count[i] == s2Count[i]) {
                 matches++;
+                //if each letter matches, increase matches count
             }
         }
 
         int l = 0;
+        //left pointer
 
         for (int r = s1.length(); r < s2.length(); r++) {
             if (matches == 26) {
@@ -59,16 +61,22 @@ class Solution {
             }
 
             int index = s2.charAt(r) - 'a';
+            //creates an index that goes through s2
             s2Count[index]++;
+            //increases the index for s2
 
             if (s1Count[index] == s2Count[index]) {
                 matches++;
+                //if s1Count and s2Count at index equal, increase count
             } else if (s1Count[index] + 1 == s2Count[index]) {
                 matches--;
+                //if s1Count  + 1 and s2Count at index do not equal, decrease count
             }
 
             index = s2.charAt(l) - 'a';
+            //override the def of index to the left pointer
             s2Count[index]--;
+            //decrease the index
 
             if (s1Count[index] == s2Count[index]) {
                 matches++;
@@ -79,5 +87,6 @@ class Solution {
         }
 
         return matches == 26;
+        //exit code when matches = 26
     }
 }

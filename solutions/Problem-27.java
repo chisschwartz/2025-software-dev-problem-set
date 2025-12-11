@@ -73,8 +73,10 @@ class Solution {
 class Solution {
     public int characterReplacement(String s, int k) {
         HashMap<Character, Integer> count = new HashMap<>();
+        //creates a hashmap to store our count
         int res = 0;
          int l = 0, maxf = 0;
+         //intializes a left pointer and a max
 
         for (int r = 0; r < s.length(); r++) {
             count.put(s.charAt(r), count.getOrDefault(s.charAt(r), 0) + 1);
